@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Voluntários - Ateliê de Projetos Parlamentares</title>
+  <!-- Miniatura do link (Open Graph) -->
+<meta name="description" content="Seja voluntário no Ateliê de Projetos Parlamentares da vereadora Amanda Areval, de Vilhena. Escolha suas áreas de interesse e ajude a gerir os projetos do mandato.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Cadastro de Voluntários - Ateliê de Projetos Parlamentares">
+<meta property="og:description" content="Um mandato participativo e popular. Cadastre-se e apadrinhe um projeto da vereadora Amanda Areval.">
+<meta property="og:url" content="https://herbertweil.github.io/inscricaoatelie/">
+<meta property="og:image" content="https://herbertweil.github.io/inscricaoatelie/miniatura.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://herbertweil.github.io/inscricaoatelie/miniatura.jpg">
+  <!-- Fonts: Oswald for bold condensed impact headers, Inter for crisp body readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              royal: '#0A2540',
+              royalDark: '#051629',
+              gold: '#FFC700',
+              goldHover: '#E5B200',
+              accentBlue: '#0055FF',
+              textMain: '#1A2B49',
+              textMuted: '#4A5568'
+            }
+          },
+          fontFamily: {
+            title: ['Oswald', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Aesthetics */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #051629;
+    }
+
+    /* Background Abstract 3D Spheres & Gradients */
+    .bg-gradient-overlay {
+      background: radial-gradient(circle at 15% 20%, rgba(0, 85, 255, 0.4) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 80%, rgba(255, 199, 0, 0.15) 0%, transparent 40%),
+                  linear-gradient(135deg, #051629 0%, #0A2540 50%, #061933 100%);
+    }
+
+    /* Abstract Glass Elements for Visual Depth */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 320px;
+      height: 320px;
+      background: rgba(0, 85, 255, 0.35);
+      top: -80px;
+      left: -80px;
+    }
+
+    .orb-2 {
+      width: 280px;
+      height: 280px;
+      background: rgba(255, 199, 0, 0.25);
+      bottom: -60px;
+      right: -60px;
+    }
+
+    /* Highlight badge style inside text */
+    .highlight-gold {
+      background-color: #FFC700;
+      color: #0A2540;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      display: inline;
+    }
+
+    /* Checkbox custom style */
+    .checkbox-custom:checked + label {
+      border-color: #0A2540;
+      background-color: rgba(10, 37, 64, 0.04);
+      color: #0A2540;
+    }
+    
+    .checkbox-custom:checked + label .check-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .checkbox-custom:disabled + label {
+      opacity: 0.5;
+      cursor: not-allowed;
+      border-color: #E2E8F0;
+      background-color: #F8FAFC;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-overlay flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-x-hidden">
+
+  <!-- 3D Abstract Background Lighting Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Main Card Container -->
+  <div class="relative z-10 w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20 my-8">
+    
+    <!-- Top Accent Bar -->
+    <div class="h-3 bg-brand-gold w-full"></div>
+
+    <div class="p-6 sm:p-10">
+      
+      <!-- Header Section -->
+      <header class="text-center mb-8">
+        <div class="inline-block bg-brand-royal/10 text-brand-royal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-1">
+          Gabinete Participativo
+        </div>
+        <img src="logo.png" alt="Logo do Ateliê de Projetos Parlamentares" class="mx-auto h-40 sm:h-44 w-auto mb-1">
+        <h1 class="font-title text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-brand-royal leading-tight mb-2">
+          Cadastro de Voluntários <br class="hidden sm:block">
+          <span class="text-brand-royal bg-brand-gold px-2 py-0.5 rounded inline-block mt-1">Ateliê de Projetos Parlamentares</span>
+        </h1>
+        
+        <p class="text-base sm:text-lg font-medium text-brand-royal/80 mt-3 border-b pb-4 border-gray-100">
+          Idealizado pela vereadora <span class="font-bold text-brand-royal">Amanda Areval</span>, de Vilhena
+        </p>
+      </header>
+
+      <!-- Institutional Manifesto / Introductory Text -->
+      <div class="bg-slate-50 border-l-4 border-brand-gold p-5 rounded-r-lg mb-8 text-brand-textMuted text-sm sm:text-base leading-relaxed space-y-4">
+        <p>
+          Devido à exoneração de boa parte da equipe da vereadora Amanda pela presidência da Câmara, estamos abrindo as portas de nosso gabinete para que a comunidade ajude a parlamentar a gerir e executar as dezenas de projetos que estão em andamento (<strong class="text-brand-royal">são mais de 100!</strong>).
+        </p>
+        <p>
+          Preencha o breve formulário abaixo, escolha até <strong class="text-brand-royal">3 áreas</strong> de seu maior interesse, e enviaremos os projetos em andamento que temos nestas áreas para definirmos qual deles <strong class="text-brand-royal">você apadrinhará e se tornará apoiador(a) ou gestor(a) oficial</strong>. Será um mandato participativo, popular e ainda maior, com sua ajuda.
+        </p>
+        <img src="amanda.jpg" alt="Vereadora Amanda Areval" class="block w-full max-h-96 object-cover object-top rounded-lg shadow-md">
+        <!-- Quote Box -->
+        <div class="bg-white p-4 rounded border border-gray-200 mt-3 italic text-brand-royal text-sm font-medium shadow-sm">
+          <p class="mb-1">"Todos esses que aí estão</p>
+          <p class="mb-1">Atravancando meu caminho,</p>
+          <p class="mb-1">Eles passarão...</p>
+          <p class="font-bold">Eu passarinho!"</p>
+          <span class="block text-right text-xs font-semibold text-brand-goldHover not-italic uppercase mt-1">— Mário Quintana</span>
+        </div>
+        <!-- Card: Ferramentas e equipe à disposição -->
+        <div class="bg-white rounded-lg border border-gray-200 border-t-4 border-t-brand-gold shadow-sm p-4 sm:p-5 not-italic">
+          <p class="text-sm sm:text-base text-brand-textMuted leading-relaxed mb-4">
+            <p> <strong class="text-brand-royal">Ferramentas e equipe</strong></p>
+            Para ajudar você a nos ajudar, oferecemos diversas ferramentas e uma equipe profissional aqui no <strong class="text-brand-royal">Gabinete 6</strong>. Veja abaixo o que você terá à sua disposição para contribuir com nossas ações ou propor ainda outras que sempre teve vontade de ver sair do papel!
+          </p>
+
+          <ul class="space-y-2.5 text-sm font-medium text-brand-textMain">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Apoio com documentação oficial</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Orientações jurídicas e políticas</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Design e produção de conteúdo para rede social</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Acesso à imprensa</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Fotografia e produção de textos</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Contatos de alto nível com autoridades municipais, estaduais e federais</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Organização e exibição de dados em planilhas, gráficos e painéis de informação</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Acesso facilitado e constante à vereadora Amanda Areval e seu gabinete</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-brand-goldHover" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              <span>Material informativo e educacional</span>
+            </li>
+          </ul>
+        </div>
+        <p class="font-title text-xl font-bold uppercase text-brand-royal tracking-wider text-center pt-1">
+          Seguimos! ✊✨
+        </p>
+
+      </div>
+
+      <!-- GOOGLE APPS SCRIPT CODE REFERENCE INSTRUCTIONS IN MODAL OR COMMENT -->
+      <!--
+      ===================================================================================
+      CÓDIGO GOOGLE APPS SCRIPT (Copie e cole na sua planilha do Google Sheets):
+      
+      1. Na planilha, crie na linha 1 as colunas: Data | Nome | Profissao | Bairro | AreasInteresse | Whatsapp
+      2. Vá em Extensões > Apps Script.
+      3. Substitua tudo pelo código abaixo:
+
+      function doPost(e) {
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        var data = e.parameter;
+        sheet.appendRow([
+          new Date(),
+          data.nome,
+          data.profissao,
+          data.bairro,
+          data.areas_interesse,
+          data.whatsapp
+        ]);
+        return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
+                             .setMimeType(ContentService.MimeType.JSON);
+      }
+
+      4. Clique em Implantar > Nova Implantação > App da Web.
+      5. Executar como: Eu | Quem pode acessar: Qualquer Pessoa.
+      6. Copie a URL gerada e substitua na variável URL_DO_SCRIPT abaixo no JS!
+      ===================================================================================
+      -->
+
+      <!-- Registration Form -->
+      <form id="volunteerForm" class="space-y-6">
+        
+        <!-- Field 1: Name -->
+        <div>
+          <label for="nome" class="block text-xs uppercase font-bold tracking-wider text-brand-royal mb-2">
+            Nome Completo <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="nome" 
+            name="nome" 
+            required
+            placeholder="Digite seu nome completo"
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-royal focus:ring-2 focus:ring-brand-royal/20 outline-none transition text-brand-textMain font-medium placeholder-gray-400 bg-gray-50 focus:bg-white"
+          >
+        </div>
+
+        <!-- Field 2: Profession & Field 3: Bairro (Grid for responsive layout) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="profissao" class="block text-xs uppercase font-bold tracking-wider text-brand-royal mb-2">
+              Profissão <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="profissao" 
+              name="profissao" 
+              required
+              placeholder="Ex: Professor(a), Advogado(a)"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-royal focus:ring-2 focus:ring-brand-royal/20 outline-none transition text-brand-textMain font-medium placeholder-gray-400 bg-gray-50 focus:bg-white"
+            >
+          </div>
+
+          <div>
+            <label for="bairro" class="block text-xs uppercase font-bold tracking-wider text-brand-royal mb-2">
+              Bairro <span class="text-red-500">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bairro" 
+              name="bairro" 
+              required
+              placeholder="Digite o seu bairro em Vilhena"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-royal focus:ring-2 focus:ring-brand-royal/20 outline-none transition text-brand-textMain font-medium placeholder-gray-400 bg-gray-50 focus:bg-white"
+            >
+          </div>
+        </div>
+
+        <!-- Field 4: Areas of Interest (Checkboxes with max 2 limit) -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-xs uppercase font-bold tracking-wider text-brand-royal">
+              Áreas de Interesse <span class="text-red-500">*</span>
+            </label>
+            <span id="checkboxCounter" class="text-xs font-semibold text-brand-goldHover bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
+              0 de 3 selecionadas
+            </span>
+          </div>
+          <p class="text-xs text-gray-500 mb-3">Escolha no máximo 3 áreas com as quais você mais se identifica.</p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="areasGroup">
+            
+            <!-- Checkbox Items -->
+            <div>
+              <input type="checkbox" id="area-educacao" name="area" value="Educação" class="checkbox-custom hidden">
+              <label for="area-educacao" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Educação</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-direitosdasmulheres" name="area" value="Direitos das Mulheres" class="checkbox-custom hidden">
+              <label for="area-direitosdasmulheres" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Direitos das Mulheres</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-meioambiente" name="area" value="Meio Ambiente" class="checkbox-custom hidden">
+              <label for="area-meioambiente" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Meio Ambiente</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-povosoriginarios" name="area" value="Povos Originários" class="checkbox-custom hidden">
+              <label for="area-povosoriginarios" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Povos Originários</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-seguranca" name="area" value="Segurança" class="checkbox-custom hidden">
+              <label for="area-seguranca" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Segurança</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-producaorural" name="area" value="Produção Rural" class="checkbox-custom hidden">
+              <label for="area-producaorural" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Produção Rural</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-pcd" name="area" value="Pessoas com Deficiência" class="checkbox-custom hidden">
+              <label for="area-pcd" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Pessoas com Deficiência</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-preconceito" name="area" value="Combate a Preconceitos" class="checkbox-custom hidden">
+              <label for="area-preconceito" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Combate a Preconceitos</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+<div>
+              <input type="checkbox" id="area-gestao" name="area" value="Gestão Pública" class="checkbox-custom hidden">
+              <label for="area-gestao" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Gestão Pública</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+
+            <div>
+              <input type="checkbox" id="area-saude" name="area" value="Saúde" class="checkbox-custom hidden">
+              <label for="area-saude" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Saúde</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-cultura" name="area" value="Cultura e Arte" class="checkbox-custom hidden">
+              <label for="area-cultura" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Cultura e Arte</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-infra" name="area" value="Infraestrutura e Obras" class="checkbox-custom hidden">
+              <label for="area-infra" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Infraestrutura e Obras</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-social" name="area" value="Assistência Social" class="checkbox-custom hidden">
+              <label for="area-social" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Assistência Social</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-animal" name="area" value="Causa Animal" class="checkbox-custom hidden">
+              <label for="area-animal" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Causa Animal</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-esporte" name="area" value="Esporte e Lazer" class="checkbox-custom hidden">
+              <label for="area-esporte" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Esporte e Lazer</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="area-tec" name="area" value="Tecnologia e Inovação" class="checkbox-custom hidden">
+              <label for="area-tec" class="flex items-center justify-between p-3 rounded-lg border border-gray-200 bg-white hover:border-brand-royal cursor-pointer transition text-sm font-medium text-gray-700">
+                <span>Tecnologia e Inovação</span>
+                <svg class="check-icon w-4 h-4 text-brand-royal opacity-0 transition transform scale-75" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </label>
+            </div>
+
+          </div>
+          <p id="areaError" class="text-xs text-red-500 font-semibold mt-1.5 hidden">Por favor, selecione pelo menos 1 área de interesse.</p>
+        </div>
+
+        <!-- Field 5: WhatsApp (Only Numbers formatted) -->
+        <div>
+          <label for="whatsapp" class="block text-xs uppercase font-bold tracking-wider text-brand-royal mb-2">
+            WhatsApp (Apenas Números) <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <input 
+              type="tel" 
+              id="whatsapp" 
+              name="whatsapp" 
+              required
+              maxlength="15"
+              placeholder="(69) 99999-9999"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-brand-royal focus:ring-2 focus:ring-brand-royal/20 outline-none transition text-brand-textMain font-medium placeholder-gray-400 bg-gray-50 focus:bg-white"
+            >
+          </div>
+          <p class="text-xs text-gray-400 mt-1">Usaremos para entrar em contato sobre os projetos que você apadrinhar.</p>
+        </div>
+
+                <!-- Aviso de Privacidade (LGPD) -->
+        <div>
+          <details class="group bg-slate-50 border border-gray-200 rounded-lg">
+            <summary class="flex items-center justify-between cursor-pointer select-none p-4 text-sm font-semibold text-brand-royal list-none [&::-webkit-details-marker]:hidden">
+              <span>Como meus dados serão usados?</span>
+              <svg class="w-4 h-4 text-brand-royal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+            </summary>
+
+            <div class="px-4 pb-4 text-xs sm:text-sm text-brand-textMuted leading-relaxed space-y-3 border-t border-gray-200 pt-3">
+              <p>
+                Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD)</strong>, informamos como tratamos os dados que você fornece neste formulário.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Quem é o responsável:</strong> o gabinete da vereadora Amanda Areval, de Vilhena/RO, é o responsável pelo tratamento dos seus dados (controlador).
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Dados coletados:</strong> nome completo, profissão, bairro, áreas de interesse e número de WhatsApp.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Finalidade:</strong> seus dados serão mantidos em sigilo e utilizados <strong>apenas</strong> para organizar os trabalhos internamente no gabinete da vereadora Amanda Areval e para entrar em contato com você, inclusive por WhatsApp, sobre os projetos das áreas escolhidas e sobre sua participação como voluntário(a).
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Compartilhamento:</strong> não haverá divulgação nem compartilhamento dos seus dados com terceiros sem o seu consentimento prévio e específico. Os dados ficam armazenados em ambiente com acesso restrito à equipe do gabinete.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Base legal:</strong> o tratamento é realizado com base no seu <strong>consentimento</strong> (art. 7º, I, da LGPD), que você manifesta ao marcar a caixa de aceite abaixo e enviar o formulário.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Por quanto tempo guardamos:</strong> pelo período em que você atuar como voluntário(a) ou enquanto for necessário para as finalidades acima, e serão eliminados quando você pedir ou quando deixarem de ser necessários.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Seus direitos (art. 18 da LGPD):</strong> você pode, a qualquer momento e gratuitamente, solicitar a confirmação de que tratamos seus dados, acesso, correção de dados incompletos ou desatualizados, anonimização, bloqueio ou eliminação, informações sobre compartilhamento e a <strong>revogação do consentimento</strong>, sem prejuízo da legalidade do tratamento já realizado.
+              </p>
+
+              <p>
+                <strong class="text-brand-royal">Como exercer seus direitos:</strong> basta enviar uma mensagem para o contato do gabinete: <strong>amandaarevalvilhena@gmail.com</strong> (WhatsApp ou e-mail).
+              </p>
+            </div>
+          </details>
+
+          <!-- Checkbox de consentimento -->
+          <label class="flex items-start gap-3 mt-3 cursor-pointer text-xs sm:text-sm text-brand-textMuted leading-snug">
+            <input type="checkbox" id="consentimento" name="consentimento" required class="mt-0.5 w-4 h-4 shrink-0 accent-[#0A2540]">
+            <span>Li e concordo com o tratamento dos meus dados pessoais conforme descrito acima. <span class="text-red-500">*</span></span>
+          </label>
+        </div>
+
+        <!-- Submit Button (CTA) -->
+        <button 
+          type="submit" 
+          id="btnSubmit"
+          class="w-full py-4 px-6 bg-brand-gold hover:bg-brand-goldHover text-brand-royal font-title font-bold text-xl uppercase tracking-wider rounded-lg shadow-lg hover:shadow-xl transform active:scale-[0.99] transition duration-200 flex items-center justify-center space-x-2"
+        >
+          <span>ENVIAR INSCRIÇÃO</span>
+          <svg class="w-6 h-6 text-brand-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+
+        <!-- Status Box for Feedback -->
+        <div id="statusMessage" class="hidden p-4 rounded-lg text-center font-medium text-sm"></div>
+
+      </form>
+
+      <!-- Footer Note -->
+      <footer class="mt-8 pt-6 border-t border-gray-100 text-center text-xs text-brand-textMuted">
+        <p>© Ateliê de Projetos Parlamentares — Gabinete Vereadora Amanda Areval</p>
+        <p class="mt-1">Vilhena / RO • Trabalho, Eficiência e Respeito</p>
+        <p class="mt-1">(69) 98171-4000 (WhatsApp) / amandaarevalvilhena@gmail.com</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // INSIRA ABAIXO A URL DO SEU GOOGLE APPS SCRIPT PUBLICADO (APP DA WEB)
+    // =========================================================================
+    const URL_DO_SCRIPT = "https://script.google.com/macros/s/AKfycbwFXq6k4DyseZ5OATluqajEz7etdKSZYKuKvIiN7ym198Z5AgtpdrsqRjYseDN4AUsHSQ/exec";
+
+    // Dynamic Elements
+    const form = document.getElementById('volunteerForm');
+    const checkboxes = document.querySelectorAll('input[name="area"]');
+    const checkboxCounter = document.getElementById('checkboxCounter');
+    const areaError = document.getElementById('areaError');
+    const whatsappInput = document.getElementById('whatsapp');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const statusMessage = document.getElementById('statusMessage');
+
+    // -------------------------------------------------------------------------
+    // 1. LIMIT CHECKBOX SELECTIONS TO MAX 2 & COUNTER UPDATER
+    // -------------------------------------------------------------------------
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('input[name="area"]:checked').length;
+        
+        // Update Counter UI
+        checkboxCounter.textContent = `${checkedCount} de 3 selecionadas`;
+        
+        if (checkedCount > 0) {
+          areaError.classList.add('hidden');
+        }
+
+        // Disable unchecked if limit of 2 is reached
+        checkboxes.forEach(box => {
+          if (!box.checked) {
+            box.disabled = checkedCount >= 3;
+          }
+        });
+      });
+    });
+
+    // -------------------------------------------------------------------------
+    // 2. WHATSAPP MASKING (BRAZILIAN PHONE FORMAT: (XX) XXXXX-XXXX)
+    // -------------------------------------------------------------------------
+    whatsappInput.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, ''); // Keep numbers only
+      if (value.length > 11) value = value.slice(0, 11);
+
+      if (value.length > 10) {
+        // (XX) XXXXX-XXXX
+        value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      } else if (value.length > 6) {
+        // (XX) XXXX-XXXX
+        value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+      } else if (value.length > 2) {
+        // (XX) XXXX
+        value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+      } else if (value.length > 0) {
+        value = value.replace(/^(\d*)$/, '($1');
+      }
+
+      e.target.value = value;
+    });
+
+    // -------------------------------------------------------------------------
+    // 3. FORM SUBMISSION TO GOOGLE SHEETS VIA FETCH
+    // -------------------------------------------------------------------------
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Check if at least 1 interest area is selected
+      const selectedAreas = Array.from(document.querySelectorAll('input[name="area"]:checked')).map(cb => cb.value);
+      if (selectedAreas.length === 0) {
+        areaError.classList.remove('hidden');
+        return;
+      }
+
+      // UI Loading State
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `
+        <svg class="animate-spin h-6 w-6 text-brand-royal" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>ENVIANDO DADOS...</span>
+      `;
+
+          // Build Form Payload
+      const formData = new FormData();
+      formData.append('nome', document.getElementById('nome').value.trim());
+      formData.append('profissao', document.getElementById('profissao').value.trim());
+      formData.append('bairro', document.getElementById('bairro').value.trim());
+      formData.append('areas_interesse', selectedAreas.join(', '));
+      formData.append('whatsapp', whatsappInput.value);
+      formData.append('consentimento', 'Sim - ' + new Date().toLocaleString('pt-BR'));
+
+      // Envio: no-cors evita bloqueio do navegador com o Google Apps Script
+      fetch(URL_DO_SCRIPT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(formData)
+      })
+      .then(() => {
+        showStatus('✅Inscrição enviada com sucesso! Quando a população participa das políticas públicas de forma ativa a comunidade melhora, o poder público fica mais assertivo e as transformações alcançam quem mais precisa, de verdade. Em breve entraremos em contato pelo WhatsApp para você escolher qual projeto deseja apadrinhar, especificamente, dentro da sua área de interesse. Este movimento do gabinete da vereadora Amanda Areval é pioneiro e busca mostrar a força de quem deseja resultados práticos com muito trabalho, eficiência e respeito! Seguimos!', true);
+        form.reset();
+        checkboxes.forEach(box => { box.disabled = false; });
+        checkboxCounter.textContent = '0 de 3 selecionadas';
+        resetButton();
+      })
+      .catch(() => {
+        showStatus('❌ Não foi possível enviar. Verifique sua internet e tente novamente.', false);
+        resetButton();
+      });
+    });
+
+    function resetButton() {
+      btnSubmit.disabled = false;
+      btnSubmit.innerHTML = `
+        <span>ENVIAR INSCRIÇÃO</span>
+        <svg class="w-6 h-6 text-brand-royal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      `;
+    }
+
+    function showStatus(message, ok) {
+      statusMessage.textContent = message;
+      statusMessage.className = 'p-4 rounded-lg text-center font-medium text-sm ' +
+        (ok ? 'bg-green-50 text-green-700 border border-green-200'
+            : 'bg-red-50 text-red-700 border border-red-200');
+      statusMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+</body>
+</html>
